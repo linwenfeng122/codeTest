@@ -28,28 +28,27 @@
          	 this.$set(item, 'store_check', true);
          	 item.goods.forEach( (item1,index1) => {
          	 	this.$set(item1.goods_info, 'goods_check', true);
-                
-         	 	    console.log("购物车"+sessionStorage.getItem("cartId"))
+         	 	console.log("购物车"+sessionStorage.getItem("cartId"))
          	 	    // 读取本地的缓存
-         	 	    if (sessionStorage.getItem("cartId")) {
-         	 	      	  let cartArray = JSON.parse(sessionStorage.getItem("cartId"));
-	         	 	      let flag=false;
-	         	 		  cartArray.forEach( (cart,id) => {
-	                         if (cart == item1.goods_info.id) {
-	                         	flag = true;
-	                         }
+         	 	 if (sessionStorage.getItem("cartId")) {
+         	 	      let cartArray = JSON.parse(sessionStorage.getItem("cartId"));
+	         	 	   let flag=false;
+	         	           cartArray.forEach( (cart,id) => {
+	                      if (cart == item1.goods_info.id) {
+	                            flag = true;
+	                       }
 
 	                       });
-	                       item1.goods_info.goods_check = flag;
-                          this.cartId = cartArray;
-         	 	    }else{
+	                     item1.goods_info.goods_check = flag;
+                             this.cartId = cartArray;
+         	 	      }else{
          	 	    	 this.cartId.push(item1.goods_info.id);
-         	 	    }
+         	 	      }
          	 	   
-         	 	   // 判断是否全选
-         	 	   if (!item1.goods_info.goods_check) {
-         	 	   	   allFlag = false;
-         	 	   }
+			      // 判断是否全选
+			      if (!item1.goods_info.goods_check) {
+				   allFlag = false;
+			       }
 
 
          	 	
