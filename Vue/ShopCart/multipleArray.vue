@@ -24,12 +24,11 @@
        created() {
        	 console.log("created")
          this.list.datas.forEach( (item,index) => {
-             let allFlag = true;
-               // item.store_check = true;
+                 let allFlag = true;
          	 this.$set(item, 'store_check', true);
          	 item.goods.forEach( (item1,index1) => {
          	 	this.$set(item1.goods_info, 'goods_check', true);
-                // item1.goods_info.goods_check = true;
+                
          	 	    console.log("购物车"+sessionStorage.getItem("cartId"))
          	 	    // 读取本地的缓存
          	 	    if (sessionStorage.getItem("cartId")) {
